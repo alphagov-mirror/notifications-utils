@@ -58,9 +58,14 @@ def test_request_id_is_set_on_response(app):
     request_helper.init_app(app)
     client = app.test_client()
 
+    @app.route('/')
+    def success_route():
+        return "", 200
+
     with app.app_context():
         response = client.get('/', headers={'NotifyRequestID': 'generated'})
         assert response.headers['NotifyRequestID'] == 'generated'
+        assert response.status_code == 200
 
 
 def test_request_id_is_set_on_error_response(app):
