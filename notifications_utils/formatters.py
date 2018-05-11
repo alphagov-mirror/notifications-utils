@@ -271,7 +271,7 @@ class NotifyLetterMarkdownPreviewRenderer(mistune.Renderer):
 
     def paragraph(self, text):
         if text.strip():
-            return '<p>{}</p>'.format(text)
+            return '{}{}{}'.format(text, self.linebreak(), self.linebreak())
         return ''
 
     def table(self, header, body):
