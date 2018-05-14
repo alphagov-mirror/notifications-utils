@@ -2,7 +2,7 @@
 <style media="print">
   @page {
     size: A4 portrait;
-    margin: 15mm 10mm 14mm 15mm;
+    margin: 15mm 10mm 20mm 15mm;
   }
   @page :first {
     margin-top: 10mm;
@@ -110,7 +110,8 @@
   p {
     font-size: 12.5pt;
     line-height: {{ line_height }};
-    margin: 0 0 {{ line_height }} 0;
+    margin: 0 0 0 0;
+    border-bottom: {{ line_height }} solid green;
   }
   #content ul,
   #content ol {
