@@ -1711,3 +1711,18 @@ def test_plain_text_email_whitespace():
         '1. one not four\n'
         '2. two not five\n'
     )
+
+
+@pytest.mark.parametrize("template_class", [
+    LetterPreviewTemplate,
+    LetterPrintTemplate,
+])
+@pytest.mark.parametrize("filename, expected_html_class", [
+    ('example.png', 'class="png"'),
+    ('example.svg', 'class="svg"'),
+])
+def test_image_class_applied_to_logo(template_class, filename, expected_html_class):
+    assert expected_html_class in str(template_class(
+        {'content': 'Foo', 'subject': 'Subject'},
+        logo_file_name=filename,
+    ))
