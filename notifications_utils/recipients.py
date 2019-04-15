@@ -69,16 +69,22 @@ class RecipientCSV():
         self.whitelist = whitelist
         self.template = template if isinstance(template, Template) else None
         self.international_sms = international_sms
-        self.rows = list(self.get_rows())
         self.remaining_messages = remaining_messages
+        self.rows_as_list = None
 
     def __len__(self):
         if not hasattr(self, '_len'):
-            self._len = len(self.rows)
+            if self.rows_as_list is None:
+                # self.get_rows() populates self.rows_as_list as it goes
+                list(self.get_rows())
+            self._len = len(self.rows_as_list)
         return self._len
 
     def __getitem__(self, requested_index):
-        return self.rows[requested_index]
+        if self.rows_as_list is None:
+            # self.get_rows() populates self.rows_as_list as it goes
+            list(self.get_rows())
+        return self.rows_as_list[requested_index]
 
     @property
     def whitelist(self):
@@ -142,6 +148,12 @@ class RecipientCSV():
         )
 
     @property
+    def rows(self):
+        if self.rows_as_list is not None:
+            return self.rows_as_list
+        return list(self.get_rows())
+
+    @property
     def _rows(self):
         return csv.reader(
             self.file_data.strip().splitlines(),
@@ -150,6 +162,10 @@ class RecipientCSV():
         )
 
     def get_rows(self):
+        rows_as_a_list_is_empty = self.rows_as_list is None
+
+        if rows_as_a_list_is_empty:
+            self.rows_as_list = []
 
         column_headers = self._raw_column_headers  # this is for caching
         length_of_column_headers = len(column_headers)
@@ -177,7 +193,7 @@ class RecipientCSV():
                     insert_or_append_to_dict(output_dict, key, None)
 
             if index < self.max_rows:
-                yield Row(
+                row = Row(
                     output_dict,
                     index=index,
                     error_fn=self._get_error_for_field,
@@ -185,7 +201,12 @@ class RecipientCSV():
                     placeholders=self.placeholders_as_column_keys,
                     template=self.template,
                 )
+                if rows_as_a_list_is_empty:
+                    self.rows_as_list.append(row)
+                yield row
             else:
+                if rows_as_a_list_is_empty:
+                    self.rows_as_list.append(None)
                 yield None
 
     @property

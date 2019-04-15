@@ -5,7 +5,7 @@ from functools import partial
 from orderedset import OrderedSet
 
 from notifications_utils import SMS_CHAR_COUNT_LIMIT
-from notifications_utils.recipients import RecipientCSV
+from notifications_utils.recipients import Cell, RecipientCSV, Row
 from notifications_utils.template import SMSMessageTemplate
 
 
@@ -160,6 +160,36 @@ def test_get_rows(file_contents, template_type, expected):
         assert len(rows[index].items()) == len(row)
         for key, value in row:
             assert rows[index].get(key).data == value
+
+
+def test_get_rows_does_no_error_checking_of_rows_or_cells(mocker):
+    recipients = RecipientCSV(
+        """
+            email address, name
+            a@b.com,
+            a@b.com, My Name
+            a@b.com,
+
+
+        """,
+        template_type='email',
+        placeholders=['name'],
+        max_errors_shown=3
+    )
+
+    has_error_mock = mocker.patch.object(Row, 'has_error')
+    has_bad_recipient_mock = mocker.patch.object(Row, 'has_bad_recipient')
+    has_missing_data_mock = mocker.patch.object(Row, 'has_missing_data')
+    cell_recipient_error_mock = mocker.patch.object(Cell, 'recipient_error')
+
+    rows = recipients.get_rows()
+    for i in range(3):
+        next(rows)
+
+    assert not has_error_mock.called
+    assert not has_bad_recipient_mock.called
+    assert not has_missing_data_mock.called
+    assert not cell_recipient_error_mock.called
 
 
 @pytest.mark.parametrize(
