@@ -37,7 +37,7 @@ setup(
         'smartypants==2.0.1',
         'monotonic==1.5',
         'pypdf2==1.26.0',
-        'statsd-client @ git+https://github.com/gaelen/python-statsd-client@72c0652',
+        'statsd-client @ git+https://github.com/gaelen/python-statsd-client@72c065226e9a0fb98d4a1bb22c94bbcb6ef8a295',
 
         # required by both api and admin
         'awscli==1.16.185',
