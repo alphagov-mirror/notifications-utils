@@ -1,3 +1,5 @@
+import urllib
+
 import requests
 from flask import current_app
 
@@ -92,3 +94,28 @@ class ZendeskClient():
             )
 
             raise ZendeskError(response)
+
+    def get_tickets(self):
+        query_params = 'type:ticket group:{}'.format(self.NOTIFY_GROUP_ID)
+        query_params = urllib.parse.quote(query_params)
+        next_page = self.ZENDESK_TICKET_URL.format(query_params)
+        results = []
+        while next_page:
+            response = requests.get(
+                next_page,
+                headers={'Content-type': 'application/json'},
+                auth=(
+                    '{}/token'.format(self.NOTIFY_ZENDESK_EMAIL),
+                    self.api_key
+                )
+            )
+            if response.status_code != 201:
+                current_app.logger.error("Failed to get Zendesk tickets")
+                raise ZendeskError(response)
+
+            data = response.json()
+            for row in data["results"]:
+                results.append(row)
+            next_page = data["next_page"]
+
+        return results
