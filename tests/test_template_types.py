@@ -822,6 +822,7 @@ def test_subject_line_gets_replaced():
 @pytest.mark.parametrize("content, values, expected_count", [
     ("Content with ((placeholder))", {"placeholder": "something extra"}, 28),
     ("Content with ((placeholder))", {"placeholder": ""}, 12),
+    ("Just content", {}, 12),
     ("((placeholder))  ", {"placeholder": "  "}, 0),
     ("  ", {}, 0),
 ])
@@ -838,9 +839,9 @@ def test_WithSubjectTemplate_character_count(content, values, expected_count):
     ("((placeholder))  ", {"placeholder": "  "}, None, 0),
     ("  ", {}, None, 0),
     ("Content with ((placeholder))", {"placeholder": "something extra"}, "GDS", 33),
-    ("Just content", {}, "GDS", 12),
-    ("((placeholder))  ", {"placeholder": "  "}, "GDS", 5),
-    ("  ", {}, "GDS", 5),
+    ("Just content", {}, "GDS", 17),
+    ("((placeholder))  ", {"placeholder": "  "}, "GDS", 4),
+    ("  ", {}, "GDS", 4),
 ])
 def test_SMSMessageTemplate_character_count(content, values, prefix, expected_count):
     template = SMSMessageTemplate({"content": content}, prefix=prefix)
