@@ -92,3 +92,5 @@ class ZendeskClient():
             )
 
             raise ZendeskError(response)
+
+        return response.json()['ticket']

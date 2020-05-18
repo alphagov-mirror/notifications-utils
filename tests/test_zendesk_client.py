@@ -59,9 +59,17 @@ def test_create_ticket(
     expected_tag_list,
     expected_priority,
 ):
-    rmock.request('POST', 'https://govuk.zendesk.com/api/v2/tickets.json', status_code=201, json={})
+    rmock.request(
+        'POST',
+        'https://govuk.zendesk.com/api/v2/tickets.json',
+        status_code=201,
+        json={'ticket': {
+            'id': 12345,
+            'subject': 'Something is wrong',
+        }}
+    )
 
-    zendesk_client.create_ticket('subject', 'message', 'ticket_type', **extra_args)
+    ticket = zendesk_client.create_ticket('subject', 'message', 'ticket_type', **extra_args)
 
     assert rmock.last_request.headers['Authorization'][:6] == 'Basic '
     b64_auth = rmock.last_request.headers['Authorization'][6:]
@@ -82,6 +90,10 @@ def test_create_ticket(
             'tags': expected_tag_list,
         }
     }
+    assert ticket == {
+        'id': 12345,
+        'subject': 'Something is wrong',
+    }
 
 
 @pytest.mark.parametrize('name, zendesk_name', [
@@ -89,7 +101,15 @@ def test_create_ticket(
     (None, '(no name supplied)')
 ])
 def test_create_ticket_with_user_name_and_email(zendesk_client, rmock, name, zendesk_name):
-    rmock.request('POST', 'https://govuk.zendesk.com/api/v2/tickets.json', status_code=201, json={'status': 'ok'})
+    rmock.request(
+        'POST',
+        'https://govuk.zendesk.com/api/v2/tickets.json',
+        status_code=201,
+        json={'ticket': {
+            'id': 12345,
+            'subject': 'Something is wrong',
+        }}
+    )
 
     zendesk_client.create_ticket(
         'subject',
