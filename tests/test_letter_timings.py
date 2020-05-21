@@ -32,10 +32,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Wednesday 2017-07-12 16:00',
             'Thursday 2017-07-13 16:00',
             'Friday 2017-07-14 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Saturday 2017-07-15 16:00',
+            'Tuesday 2017-07-18 16:00',
+            'Tuesday 2017-07-18 16:00',
+            'Thursday 2017-07-20 16:00',
         ),
         #  Monday at 17:29 BST (sent on monday)
         (
@@ -45,10 +45,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Wednesday 2017-07-12 16:00',
             'Thursday 2017-07-13 16:00',
             'Friday 2017-07-14 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Saturday 2017-07-15 16:00',
+            'Tuesday 2017-07-18 16:00',
+            'Tuesday 2017-07-18 16:00',
+            'Thursday 2017-07-20 16:00',
         ),
         #  Monday at 17:30 BST (sent on tuesday)
         (
@@ -58,10 +58,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Thursday 2017-07-13 16:00',
             'Friday 2017-07-14 16:00',
             'Saturday 2017-07-15 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Monday 2017-07-17 16:00',
+            'Wednesday 2017-07-19 16:00',
+            'Wednesday 2017-07-19 16:00',
+            'Friday 2017-07-21 16:00',
         ),
         #  Tuesday before 17:30 BST
         (
@@ -71,10 +71,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Thursday 2017-07-13 16:00',
             'Friday 2017-07-14 16:00',
             'Saturday 2017-07-15 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Monday 2017-07-17 16:00',
+            'Wednesday 2017-07-19 16:00',
+            'Wednesday 2017-07-19 16:00',
+            'Friday 2017-07-21 16:00',
         ),
         #  Wednesday before 17:30 BST
         (
@@ -84,10 +84,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Friday 2017-07-14 16:00',
             'Saturday 2017-07-15 16:00',
             'Monday 2017-07-17 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Tuesday 2017-07-18 16:00',
+            'Thursday 2017-07-20 16:00',
+            'Thursday 2017-07-20 16:00',
+            'Saturday 2017-07-22 16:00',
         ),
         #  Thursday before 17:30 BST
         (
@@ -97,10 +97,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Saturday 2017-07-15 16:00',
             'Monday 2017-07-17 16:00',
             'Tuesday 2017-07-18 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Wednesday 2017-07-19 16:00',
+            'Friday 2017-07-21 16:00',
+            'Friday 2017-07-21 16:00',
+            'Monday 2017-07-24 16:00',
         ),
         #  Friday anytime
         (
@@ -110,10 +110,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Tuesday 2017-07-18 16:00',
             'Wednesday 2017-07-19 16:00',
             'Thursday 2017-07-20 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Friday 2017-07-21 16:00',
+            'Monday 2017-07-24 16:00',
+            'Monday 2017-07-24 16:00',
+            'Wednesday 2017-07-26 16:00',
         ),
         (
             'Friday 2017-07-14 12:00:00',
@@ -122,10 +122,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Tuesday 2017-07-18 16:00',
             'Wednesday 2017-07-19 16:00',
             'Thursday 2017-07-20 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Friday 2017-07-21 16:00',
+            'Monday 2017-07-24 16:00',
+            'Monday 2017-07-24 16:00',
+            'Wednesday 2017-07-26 16:00',
         ),
         (
             'Friday 2017-07-14 22:00:00',
@@ -134,10 +134,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Tuesday 2017-07-18 16:00',
             'Wednesday 2017-07-19 16:00',
             'Thursday 2017-07-20 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Friday 2017-07-21 16:00',
+            'Monday 2017-07-24 16:00',
+            'Monday 2017-07-24 16:00',
+            'Wednesday 2017-07-26 16:00',
         ),
         #  Saturday anytime
         (
@@ -147,10 +147,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Tuesday 2017-07-18 16:00',
             'Wednesday 2017-07-19 16:00',
             'Thursday 2017-07-20 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Friday 2017-07-21 16:00',
+            'Monday 2017-07-24 16:00',
+            'Monday 2017-07-24 16:00',
+            'Wednesday 2017-07-26 16:00',
         ),
         #  Sunday before 1730 BST
         (
@@ -160,10 +160,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Tuesday 2017-07-18 16:00',
             'Wednesday 2017-07-19 16:00',
             'Thursday 2017-07-20 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Friday 2017-07-21 16:00',
+            'Monday 2017-07-24 16:00',
+            'Monday 2017-07-24 16:00',
+            'Wednesday 2017-07-26 16:00',
         ),
         #  Sunday after 17:30 BST
         (
@@ -173,10 +173,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Wednesday 2017-07-19 16:00',
             'Thursday 2017-07-20 16:00',
             'Friday 2017-07-21 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Saturday 2017-07-22 16:00',
+            'Tuesday 2017-07-25 16:00',
+            'Tuesday 2017-07-25 16:00',
+            'Thursday 2017-07-27 16:00',
         ),
 
         # GMT
@@ -189,10 +189,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Wednesday 2017-01-04 16:00',
             'Thursday 2017-01-05 16:00',
             'Friday 2017-01-06 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Saturday 2017-01-07 16:00',
+            'Tuesday 2017-01-10 16:00',
+            'Tuesday 2017-01-10 16:00',
+            'Thursday 2017-01-12 16:00',
         ),
         #  Monday at 17:00 GMT
         (
@@ -202,10 +202,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Thursday 2017-01-05 16:00',
             'Friday 2017-01-06 16:00',
             'Saturday 2017-01-07 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Monday 2017-01-09 16:00',
+            'Wednesday 2017-01-11 16:00',
+            'Wednesday 2017-01-11 16:00',
+            'Friday 2017-01-13 16:00',
         ),
 
         # Over Easter bank holiday weekend
@@ -216,10 +216,10 @@ from notifications_utils.letter_timings import get_letter_timings, letter_can_be
             'Wednesday 2020-04-15 16:00',
             'Thursday 2020-04-16 16:00',
             'Friday 2020-04-17 16:00',
-            '',
-            '',
-            '',
-            '',
+            'Saturday 2020-04-18 16:00',
+            'Tuesday 2020-04-21 16:00',
+            'Tuesday 2020-04-21 16:00',
+            'Thursday 2020-04-23 16:00',
         ),
     ]
 )
@@ -255,11 +255,25 @@ def test_get_estimated_delivery_date_for_letter(
     assert format_dt(first_class_timings.earliest_delivery) == first_class
     assert format_dt(first_class_timings.latest_delivery) == first_class
 
+    europe_timings = get_letter_timings(upload_time, postage='europe')
+
+    assert format_dt(europe_timings.printed_by) == expected_print_time
+    assert europe_timings.is_printed == is_printed
+    assert format_dt(europe_timings.earliest_delivery) == expected_earliest_europe
+    assert format_dt(europe_timings.latest_delivery) == expected_latest_europe
+
+    rest_of_world_timings = get_letter_timings(upload_time, postage='rest-of-world')
+
+    assert format_dt(rest_of_world_timings.printed_by) == expected_print_time
+    assert rest_of_world_timings.is_printed == is_printed
+    assert format_dt(rest_of_world_timings.earliest_delivery) == expected_earliest_rest_of_world
+    assert format_dt(rest_of_world_timings.latest_delivery) == expected_latest_rest_of_world
+
 
 def test_letter_timings_only_accept_real_postage_values():
     with pytest.raises(TypeError) as exception:
         get_letter_timings(datetime.utcnow().isoformat(), postage='foo')
-    assert str(exception.value) == 'postage must be first or second'
+    assert str(exception.value) == 'postage must be first, second, europe or rest-of-world'
 
 
 @pytest.mark.parametrize('status', ['sending', 'pending'])
