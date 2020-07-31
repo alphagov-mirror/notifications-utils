@@ -155,6 +155,13 @@ def test_includes_electoral_wards():
     assert len(areas) == 1
 
 
+def test_electoral_wards_are_groupable():
+    areas = broadcast_area_libraries.get_areas(['electoral-wards-of-the-united-kingdom-W06000015'])
+    assert len(areas) == 1
+    cardiff = areas[0]
+    assert len(cardiff.sub_areas) == 29
+
+
 def test_repository_has_all_libraries():
     repo = BroadcastAreasRepository()
     libraries = repo.get_libraries()
