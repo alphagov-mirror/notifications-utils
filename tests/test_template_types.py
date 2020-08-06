@@ -2336,11 +2336,11 @@ def test_broadcast_message_outputs_polygons_from_broadcast_areas():
     ]
     assert len(polygons) == 4
 
-    assert polygons[0].startswith('432484.0979,150041.2005 432687.1985,150575.2976')
-    assert polygons[0].endswith(' 432222.5975,149900.1009 432484.0979,150041.2005')
+    assert polygons[0].startswith('-1.498313,51.329379 -1.499777,51.330339')
+    assert polygons[0].endswith('-1.49805,51.329029 -1.498313,51.329379')
 
-    assert polygons[1].startswith('436481.833,114516.0013 436458.7038,114520.6981')
-    assert polygons[1].endswith(' 436512.7822,114511.4438 436481.833,114516.0013')
+    assert polygons[1].startswith('-1.482268,50.928948 -1.481829,50.928906')
+    assert polygons[1].endswith('-1.482597,50.928992 -1.482268,50.928948')
 
 
 def test_broadcast_message_outputs_valid_xml_according_to_schema():
